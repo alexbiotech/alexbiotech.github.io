@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alexsynbio.github.io/sitemap.xml

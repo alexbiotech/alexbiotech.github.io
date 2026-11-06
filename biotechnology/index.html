@@ -11,14 +11,21 @@
   <meta property="og:site_name" content="Hui Ning">
   <meta property="og:title" content="Biotechnology · Hui Ning">
   <meta property="og:description" content="Hui Ning’s work in programmable RNA, cell-state analysis, and biological delivery, with papers, a PCT application, and a book chapter.">
+  <meta property="og:url" content="https://alexsynbio.github.io/biotechnology/">
+  <meta property="og:image" content="https://alexsynbio.github.io/assets/bio-sketch.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="Hand-drawn overview of biological information, cellular delivery, and function.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_CN">
-  <link rel="alternate" hreflang="en-US" href="./">
-  <link rel="alternate" hreflang="zh-CN" href="../zh/biotechnology/">
-  <link rel="alternate" hreflang="x-default" href="./">
+  <link rel="canonical" href="https://alexsynbio.github.io/biotechnology/">
+  <link rel="alternate" hreflang="en-US" href="https://alexsynbio.github.io/biotechnology/">
+  <link rel="alternate" hreflang="zh-CN" href="https://alexsynbio.github.io/zh/biotechnology/">
+  <link rel="alternate" hreflang="x-default" href="https://alexsynbio.github.io/biotechnology/">
+  <link rel="alternate" type="application/rss+xml" title="Hui Ning · Blog" href="https://alexsynbio.github.io/feed.xml">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/site.css?v=5">
+  <link rel="stylesheet" href="../assets/site.css?v=6">
   <script src="../assets/interactions.js?v=2" defer></script>
 </head>
 <body>
@@ -30,39 +37,36 @@
     </header>
     <main id="main" tabindex="-1" class="reading reading-bio">
         <a href="../" class="back"><span class="link-mark">Home</span></a>
-        <div class="reading-layout reading-layout-wide"><h1>Biotechnology</h1><div class="reading-copy"><p class="lead">I connect biological information with cellular function through RNA, proteins, and programmable systems.</p><figure class="research-figure "><div class="art-paper"><img src="../assets/bio-sketch.jpg" srcset="../assets/bio-sketch-small.jpg 720w, ../assets/bio-sketch.jpg 1440w" sizes="(max-width: 700px) 90vw, 46vw" width="1440" height="576" alt="Hand-drawn overview of biological information, cellular delivery, and function." decoding="async"></div></figure>
-              <section class="research-directions span-all"><h2>Research directions</h2><div class="text-blocks"><section class="text-block" id="thread-rna" data-spotlight><h3>Programmable RNA</h3><p>RNA switches that read cellular signals and control protein output.</p></section><section class="text-block" id="thread-state" data-spotlight><h3>Cell state and biological data</h3><p>Use biological data to identify cell states and find inputs for programmable systems.</p></section><section class="text-block" id="thread-delivery" data-spotlight><h3>Delivery that leads to function</h3><p>Carry RNA into cells, release it, and connect delivery with function.</p></section></div></section>
-              <figure class="research-figure span-all process-figure"><div class="art-paper"><img src="../assets/design-test-learn.jpg" srcset="../assets/design-test-learn-small.jpg 720w, ../assets/design-test-learn.jpg 1440w" sizes="(max-width: 1000px) 90vw, 900px" width="1440" height="576" alt="A molecular design, a cell, and observed plots form a learning loop." decoding="async"></div></figure>
-              <section id="selected-work"><h2>Selected work</h2><div class="work-list"><article class="work-entry" id="promitar" data-spotlight>
+        <div class="reading-layout reading-layout-wide"><h1>Biotechnology</h1><div class="reading-copy"><nav class="topic-jumps span-all" aria-label="Topics"><a href="#ideas">Ideas</a><a href="#research-directions">Research directions</a><a href="#selected-work">Selected work</a></nav><div class="topic-intro"><p class=lead>I am interested in how biological systems can read information and carry out a function in the right cells and conditions. Synthetic biology, RNA, and programmable cells are the directions through which I explore that question.</p><p>RNA carries information and participates in regulation. Translation, stability, cell state, and delivery connect a sequence to behavior in a cell. I want to connect computational design with measurements along that path, so each round of design can learn from real feedback.</p></div><figure class="research-figure "><div class="art-paper"><img src="../assets/bio-sketch.jpg" srcset="../assets/bio-sketch-small.jpg 720w, ../assets/bio-sketch.jpg 1440w" sizes="(max-width: 700px) 90vw, 46vw" width="1440" height="576" alt="Hand-drawn overview of biological information, cellular delivery, and function." decoding="async"></div></figure><div class="span-all" id="ideas"><section class="related-notes span-all"><h2>Related notes</h2><div class="related-grid"><section data-spotlight><h3><a href="../blog/ai4bio-evidence-after-prediction/" class="statement-link">AI4Bio: What evidence comes after a prediction?</a></h3></section><section data-spotlight><h3><a href="../blog/from-encoded-function-to-realized-function/" class="statement-link">From encoded function to realized function</a></h3></section></div></section></div><section class="span-all"><h2>Questions I am pursuing</h2><div class="question-grid"><article data-spotlight><h3>Can cell state become an input to a biological program?</h3><p>Which signals distinguish the states that matter? When those signals are connected to RNA switches or regulatory elements, can the system respond under the intended conditions with a well-defined range of function?</p></article><article data-spotlight><h3>How do we get from sequence to function?</h3><p>Which measurement corresponds to a prediction of structure, expression, or stability? Which design rules still hold when the cell state, molecular context, or delivery conditions change?</p></article><article data-spotlight><h3>Where does scaling work in AI4Bio?</h3><p>Can more data, compute, or model capacity keep improving a defined biological task? I am especially interested in whether those improvements carry over to new conditions and to the measured performance of prospective designs.</p></article><article data-spotlight><h3>How far has an industry example progressed?</h3><p>I want to follow the public evidence: what decision AI contributed to, which stage a candidate reached, what was measured, and what evidence is still needed. Original papers, trial records, and comparable results tell me more than the label “AI-driven.”</p></article></div></section><section class="span-all illustrated-section loop-note" data-spotlight><div><h2>Bringing models into an experimental loop</h2><p>I want to start with a function that can be measured reliably, use a model to propose candidates, and compare prospective results to see whether it improves the choice. Baselines, failures, and the conditions of each result belong in the next round. A useful loop should help decide which experiment to run, which design to keep, and where to revise our understanding.</p></div><figure class="research-figure "><div class="art-paper"><img src="../assets/cover-ai4bio-evidence.jpg" srcset="../assets/cover-ai4bio-evidence-small.jpg 720w, ../assets/cover-ai4bio-evidence.jpg 1440w" sizes="(max-width: 700px) 90vw, 46vw" width="1440" height="576" alt="Predicted RNA and protein designs pass through a cell to measurements that inform the next design." decoding="async" loading="lazy"></div></figure></section><section class="research-directions span-all" id="research-directions"><h2>Research directions</h2><div class="text-blocks"><section class="text-block" id="thread-rna" data-spotlight><h3>Programmable RNA</h3><p>RNA switches that read cellular signals and control protein output.</p></section><section class="text-block" id="thread-state" data-spotlight><h3>Cell state and biological data</h3><p>Use biological data to identify cell states and find inputs for programmable systems.</p></section><section class="text-block" id="thread-delivery" data-spotlight><h3>Delivery that leads to function</h3><p>Carry RNA into cells, release it, and connect delivery with function.</p></section></div></section><section id="selected-work"><h2>Selected work</h2><div class="work-list"><article class="work-entry" id="promitar" data-spotlight>
           <p class="publication-meta">Nature Communications · 2023 · Co-first author</p>
           <h3 lang="en"><a href="https://doi.org/10.1038/s41467-023-43065-w">Rational design of microRNA-responsive switch for programmable translational control in mammalian cells</a></h3>
-          <div class="work-summary"><p>microRNA-responsive RNA switches for translation control.</p></div>
+          
         </article>
 <article class="work-entry" id="specific" data-spotlight>
           <p class="publication-meta">Quantitative Biology · 2025 · Co-first author</p>
           <h3 lang="en"><a href="https://doi.org/10.1002/qub2.97">SPECIFIC: A systematic framework for engineering cell state-responsive synthetic promoters reveals key regulators of T cell exhaustion</a></h3>
-          <div class="work-summary"><p>Cell-state signals guide synthetic promoter design.</p></div>
+          
         </article>
 <article class="work-entry" id="tumor-spatial" data-spotlight>
           <p class="publication-meta">Cancer Letters · 2024 · Co-author</p>
           <h3 lang="en"><a href="https://doi.org/10.1016/j.canlet.2023.216485">The spatial and single-cell analysis reveals remodeled immune microenvironment induced by synthetic oncolytic adenovirus treatment</a></h3>
-          <div class="work-summary"><p>Spatial and single-cell analysis of the tumor immune microenvironment.</p></div>
+          
         </article>
 <article class="work-entry" id="response-prediction" data-spotlight>
           <p class="publication-meta">Nature Communications · 2023 · Co-author</p>
           <h3 lang="en"><a href="https://doi.org/10.1038/s41467-023-37159-8">Integrated transcriptome study of the tumor microenvironment for treatment response prediction in male predominant hypopharyngeal carcinoma</a></h3>
-          <div class="work-summary"><p>Tumor transcriptomics for treatment-response prediction.</p></div>
+          
         </article>
 <article class="work-entry" id="rna-switch-application" data-spotlight>
           <p class="publication-meta">Published PCT application · 2025 · Co-inventor</p>
           <h3 lang="en"><a href="https://patents.google.com/patent/WO2025035296A1/en">Cell programmable RNA translation switch regulated by miRNA</a></h3>
-          <div class="work-summary"><p>An application concerning cell-programmable RNA translation control.</p></div>
+          
         </article>
 <article class="work-entry" id="biomolecular-delivery-chapter" data-spotlight>
           <p class="publication-meta">Science Press · 2025 · Chapter co-author</p>
           <h3 lang="en"><a href="https://www.ecsponline.com/goods.php?id=227892">Delivery systems for engineered biomolecules</a></h3>
           <div class="work-summary"><p>Chapter 6 in Medical Synthetic Biology, edited by Zhen Xie.</p></div>
-        </article></div></section><section class="related-notes span-all"><h2>Related notes</h2><div class="related-grid"><section data-spotlight><h3><a href="../blog/from-encoded-function-to-realized-function/" class="statement-link">From encoded function to realized function</a></h3></section><section data-spotlight><h3><a href="../blog/ai-as-intellectual-leverage/" class="statement-link">AI as intellectual leverage</a></h3></section></div></section></div></div>
+        </article></div></section><section class="reading-sources span-all"><h2>Worth reading</h2><ul class="reading-links"><li><a href="https://www.nature.com/articles/s41587-019-0164-5">Measuring and predicting ribosome loading from 5′ UTR sequences</a><span> · Sample et al.</span></li><li><a href="https://deepmind.google/blog/enabling-high-accuracy-protein-structure-prediction-at-the-proteome-scale/">AlphaFold accuracy and confidence</a><span> · DeepMind</span></li></ul></section></div></div>
     </main>
     <footer>
       <a href="mailto:nh21@tsinghua.org.cn">nh21@tsinghua.org.cn</a>

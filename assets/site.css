@@ -54,7 +54,6 @@ main:focus { outline: none; }
 .principle-note { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 9px; }
 .other-principles h2 { max-width: 31ch; font-size: clamp(21px, 1.8vw, 28px); line-height: 1.35; font-weight: 600; letter-spacing: -.5px; text-wrap: balance; }
 .other-principles p { font-size: 15px; line-height: 1.65; color: var(--secondary-ink); }
-.keep { white-space: nowrap; }
 .statement-link { background-image: linear-gradient(var(--accent-soft), var(--accent-soft)); background-repeat: no-repeat; background-size: 0 .22em; background-position: 0 94%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size .25s ease, color .2s ease; }
 .statement-link:hover, .statement-link:focus-visible { color: var(--accent); text-decoration: none; background-size: 100% .22em; }
 .more-principles { display: inline-flex; min-height: 44px; align-items: center; margin-top: 14px; font-size: 14px; }
@@ -168,6 +167,10 @@ footer nav { display: flex; gap: 24px; }
 .essay h3 { margin: 0; font-size: 19px; line-height: 1.45; font-weight: 600; }
 .essay p { font-size: 17px; line-height: 1.8; color: var(--body-ink); margin-top: 12px; }
 .essay section { scroll-margin-top: 24px; }
+.essay-statement { width: 100%; max-width: 72ch; border-inline-start: 2px solid var(--accent); padding: 8px 0 8px 24px; }
+.essay-statement p { margin: 0; font-size: clamp(20px, 2vw, 27px); line-height: 1.6; font-weight: 600; color: var(--ink); }
+.essay-list ul, .essay-list ol { margin: 18px 0 0; padding-inline-start: 1.4em; display: grid; gap: 12px; }
+.essay-list li { padding-inline-start: .3em; font-size: 17px; line-height: 1.8; color: var(--body-ink); }
 .contact-note { border-top: 1px solid #dedede; padding-top: 24px; }
 .contact-note p { max-width: 70ch; }
 
@@ -282,6 +285,9 @@ html:lang(zh-CN) .reading-copy h2 { font-size: 21px; line-height: 1.6; letter-sp
   .essay .lead { font-size: 17px; }
   .essay h2 { font-size: 21px; }
   .essay p { font-size: 16px; }
+  .essay-statement { padding-inline-start: 18px; }
+  .essay-statement p { font-size: 20px; }
+  .essay-list li { font-size: 16px; }
   .essay-body { margin-block: 32px; }
   .timeline-row { grid-template-columns: 1fr; gap: 6px; }
   .timeline-row dt { padding-top: 0; }
@@ -305,3 +311,54 @@ html:lang(zh-CN) .reading-copy h2 { font-size: 21px; line-height: 1.6; letter-sp
   footer { margin-top: 0; }
   a { text-decoration: underline; }
 }
+
+.topic-jumps { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center; font-size: 14px; }
+.topic-jumps a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 6px; }
+.directory-intro { align-self: center; }
+.directory-intro .topic-jumps { margin-top: 18px; }
+.directory-art { max-width: 560px; width: 100%; justify-self: end; }
+.article-directory > h2 { padding-bottom: 14px; }
+.directory-row { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 20px var(--column-gap); padding: 22px 0; border-top: 1px solid #dedede; }
+.directory-row h3 a, .reading-links a, .source-link, .related-grid a, .principle-item h3 a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.directory-row time { display: block; color: var(--secondary-ink); font-size: 12px; margin-top: 8px; }
+.reading-copy .directory-row p { margin: 0; max-width: 66ch; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: baseline; font-size: 13px; color: var(--secondary-ink); }
+.essay-prose { width: 100%; max-width: 72ch; }
+.essay-prose > p:first-child { margin-top: 0; }
+.essay-prose p + p { margin-top: 24px; }
+.essay p strong { color: var(--ink); font-weight: 600; }
+.reading-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px var(--column-gap); margin: 22px 0 0; padding: 0; list-style: none; }
+.reading-links li { font-size: 15px; line-height: 1.7; }
+.reading-links span { color: var(--secondary-ink); }
+.reading-sources { border-top: 1px solid #dedede; padding-top: 24px; }
+.principle-group { border-top: 1px solid #dedede; padding-top: 24px; }
+.principle-group > h2 { margin-bottom: 26px; }
+.principle-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px var(--column-gap); }
+.principle-item { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 10px; min-width: 0; }
+.principle-items.with-art .principle-item { grid-row: span 3; }
+.reading-copy .principle-item p { margin-top: 0; }
+.principle-item .research-figure { margin-bottom: 8px; }
+.principle-lead { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-row: auto; gap: var(--column-gap); margin-bottom: 32px; }
+.method-grid, .question-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px var(--column-gap); margin-top: 24px; }
+.method-grid article, .question-grid article { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 10px; padding-top: 16px; padding-bottom: 12px; border-top: 1px solid #dedede; }
+.reading-copy .method-grid p, .reading-copy .question-grid p { margin-top: 0; }
+.loop-note p { max-width: 80ch; }
+.about-background section { margin-top: 28px; }
+.profile-figure { align-self: center; width: 100%; max-width: 580px; }
+.related-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+
+@media (max-width: 700px) {
+  .directory-row, .principle-lead, .method-grid, .question-grid, .reading-links { grid-template-columns: 1fr; }
+  .directory-row { gap: 12px; padding-block: 22px; }
+  .directory-art { max-width: 360px; justify-self: center; }
+  .principle-item, .principle-items.with-art .principle-item, .method-grid article, .question-grid article { display: block; grid-row: auto; }
+  .principle-lead { display: block; }
+  .reading-copy .principle-item p, .reading-copy .method-grid p, .reading-copy .question-grid p { margin-top: 10px; }
+  .principle-items { grid-template-columns: 1fr; gap: 28px; }
+  .reading-links { gap: 16px; }
+  .profile-figure { max-width: 420px; justify-self: center; }
+}
+
+.title-phrase { white-space: nowrap; }
+.principle-item h3 { text-wrap: balance; }
+.essay-list > ul:first-child, .essay-list > ol:first-child { margin-top: 0; }
