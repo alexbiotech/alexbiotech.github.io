@@ -113,8 +113,7 @@ footer nav { display: flex; gap: 24px; }
 .reading-layout-wide .research-directions,
 .reading-layout-wide #selected-work,
 .reading-layout-wide .research-questions,
-.reading-layout-wide #awards,
-.reading-about .lead { grid-column: 1 / -1; }
+.reading-layout-wide #awards { grid-column: 1 / -1; }
 .research-directions .text-blocks { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .reading-layout-wide .work-list,
 .research-questions .text-blocks,
@@ -149,7 +148,7 @@ footer nav { display: flex; gap: 24px; }
 .note-card { display: grid; grid-template-rows: subgrid; grid-row: span 5; min-width: 0; padding-bottom: 12px; }
 .note-card:hover { text-decoration: none; }
 .note-card .art-paper { align-self: center; }
-.note-card img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+.note-card img { display: block; width: 100%; height: auto; aspect-ratio: 2.4 / 1; object-fit: contain; mix-blend-mode: multiply; }
 .note-category, .essay-topic { color: var(--secondary-ink); font-size: 13px; }
 .reading-copy .note-card h2 { font-size: 25px; line-height: 1.35; text-wrap: initial; }
 .note-card:hover h2, .note-card:focus-visible h2 { color: var(--accent); }
@@ -160,15 +159,33 @@ footer nav { display: flex; gap: 24px; }
 .essay h1 { color: var(--accent); font-size: clamp(38px, 4.2vw, 64px); line-height: 1.1; font-weight: 500; letter-spacing: -.045em; margin-top: 16px; text-wrap: balance; }
 .essay .lead { font-size: 20px; line-height: 1.7; color: var(--body-ink); margin-top: 22px; max-width: 65ch; }
 .essay > .research-figure { margin-top: 28px; }
-.essay > .research-figure img { max-height: 400px; object-fit: contain; }
+.essay > .research-figure img { aspect-ratio: 2.4 / 1; object-fit: contain; }
 .essay > .research-figure figcaption { text-align: center; }
-.essay-body { max-width: 72ch; margin: 40px auto; display: grid; gap: 30px; }
+.essay-body { margin: 40px auto; display: grid; justify-items: center; gap: 36px; }
+.essay-body > section { width: 100%; max-width: 72ch; }
+.essay-illustration { width: 100%; max-width: 900px; margin-block: 4px; }
 .essay h2 { font-size: 25px; line-height: 1.4; font-weight: 600; letter-spacing: -.5px; text-wrap: balance; }
 .essay h3 { margin: 0; font-size: 19px; line-height: 1.45; font-weight: 600; }
 .essay p { font-size: 17px; line-height: 1.8; color: var(--body-ink); margin-top: 12px; }
 .essay section { scroll-margin-top: 24px; }
 .contact-note { border-top: 1px solid #dedede; padding-top: 24px; }
 .contact-note p { max-width: 70ch; }
+
+
+.principles-intro section { margin-top: 28px; }
+.principles-list > section > .research-figure { margin-block: 0 4px; }
+.principles-list > section > .research-figure img { aspect-ratio: 2.4 / 1; object-fit: contain; }
+.principle-additions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.principle-additions > section, .core-view { border-top: 1px solid #dedede; padding-top: 20px; }
+.reading-copy .principle-additions h2 { font-size: 20px; }
+.reading-copy .principle-additions p { font-size: 16px; }
+.application-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; padding: 0; margin: 22px 0 0; gap: 28px; }
+.application-grid li { border-top: 1px solid #dedede; padding-top: 16px; }
+.illustrated-section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--column-gap); align-items: center; }
+.process-figure { width: 100%; max-width: 900px; justify-self: center; }
+.education-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 22px; }
+.reading-copy .education-row p { font-size: 16px; margin-top: 6px; }
+.reading-about .profile-section, .research-interest { border-top: 1px solid #dedede; padding-top: 20px; }
 
 .not-found { margin-top: 38px; max-width: 650px; }
 .not-found h1 { color: var(--accent); font-size: 42px; font-weight: 500; line-height: 1.2; letter-spacing: -1.5px; }
@@ -198,18 +215,20 @@ html:lang(zh-CN) .reading-copy h2 { font-size: 21px; line-height: 1.6; letter-sp
   .reading-layout-wide .work-entry { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 8px; padding-bottom: 22px; }
   .reading-layout-wide .work-entry h3,
   .reading-layout-wide .work-entry p { margin: 0; }
-  .research-directions .text-block { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 12px; }
+  .research-directions .text-block { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 12px; }
   .research-directions .text-block > p { margin-top: 0; }
   .principles-list { row-gap: 12px; }
-  .principles-list > section { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 12px; padding-bottom: 20px; }
+  .principles-list > section { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 16px; padding-bottom: 4px; }
   .principles-list > section > p { margin-top: 0; }
+  .principle-additions > section { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 12px; }
+  .principle-additions > section > p { margin-top: 0; }
 }
 
 @media (min-width: 701px) and (max-width: 1100px) {
   .research-directions .text-blocks { grid-template-columns: 1fr; }
   .research-directions .text-block { display: block; grid-row: auto; }
   .note-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .steps-grid, .application-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 900px) and (min-width: 701px) {
@@ -250,7 +269,9 @@ html:lang(zh-CN) .reading-copy h2 { font-size: 21px; line-height: 1.6; letter-sp
   .reading-layout-wide .work-list,
   .research-questions .text-blocks,
   .reading-layout-wide #awards .timeline { grid-template-columns: 1fr; }
-  .steps-grid, .principles-list, .related-grid, .application-grid, .note-grid { grid-template-columns: 1fr; }
+  .steps-grid, .principles-list, .related-grid, .application-grid, .note-grid, .principle-additions, .illustrated-section { grid-template-columns: 1fr; }
+  .illustrated-section { gap: 20px; }
+  .principles-list > section > h2 { margin-top: 16px; }
   .steps-grid { gap: 22px; }
   .note-grid { row-gap: 12px; }
   .note-card { margin-bottom: 24px; }
