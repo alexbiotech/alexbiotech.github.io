@@ -51,19 +51,17 @@ main:focus { outline: none; }
 .thought { max-width: 65ch; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.6; margin-top: 22px; letter-spacing: -.2px; }
 .thought strong { font-weight: 600; }
 .other-principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--column-gap); row-gap: 9px; margin-top: clamp(26px, 2.5vw, 42px); }
-.principle-note { display: grid; grid-template-rows: subgrid; grid-row: span 2; row-gap: 9px; }
+.principle-note { min-width: 0; }
 .other-principles h2 { max-width: 31ch; font-size: clamp(21px, 1.8vw, 28px); line-height: 1.35; font-weight: 600; letter-spacing: -.5px; text-wrap: balance; }
 .other-principles p { font-size: 15px; line-height: 1.65; color: var(--secondary-ink); }
 .statement-link { background-image: linear-gradient(var(--accent-soft), var(--accent-soft)); background-repeat: no-repeat; background-size: 0 .22em; background-position: 0 94%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size .25s ease, color .2s ease; }
 .statement-link:hover, .statement-link:focus-visible { color: var(--accent); text-decoration: none; background-size: 100% .22em; }
 .more-principles { display: inline-flex; min-height: 44px; align-items: center; margin-top: 14px; font-size: 14px; }
-.principle-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--column-gap); margin-top: 14px; }
-.principle-actions .more-principles { width: fit-content; margin-top: 0; }
 .link-mark { position: relative; padding-bottom: 4px; }
 .link-mark::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform: scaleX(.26); transform-origin: left; opacity: .5; transition: transform .25s ease, opacity .25s ease; }
 a:hover .link-mark::after, a:focus-visible .link-mark::after { transform: scaleX(1); opacity: 1; }
 a:has(.link-mark):hover { text-decoration: none; color: var(--accent); }
-.domains { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--column-gap); margin-top: 28px; }
+.domains { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--column-gap); margin-top: 22px; }
 .domain { min-width: 0; }
 .domain-link { display: block; }
 .domain-link:hover { text-decoration: none; }
@@ -245,13 +243,13 @@ html:lang(zh-CN) .reading-copy h2 { font-size: 21px; line-height: 1.6; letter-sp
   .site-shell { padding-top: 18px; padding-bottom: 18px; }
   .masthead { position: relative; flex-wrap: wrap; gap: 2px; }
   .identity { font-size: 18px; white-space: nowrap; }
-  .masthead nav { width: 100%; gap: 8px; font-size: 13px; justify-content: space-between; }
+  .masthead nav { width: 100%; gap: 6px; font-size: 13px; justify-content: space-between; flex-wrap: wrap; }
   .masthead nav .domain-nav { display: inline-flex; }
   .masthead nav .language-switch { position: absolute; right: 0; top: 0; }
   .hero { margin-top: 27px; }
   .hero h1 { max-width: 18ch; font-size: clamp(36px, 10.9vw, 64px); line-height: 1.1; letter-spacing: -.055em; }
   .thought { font-size: 16px; line-height: 1.65; margin-top: 19px; }
-  .other-principles { grid-template-columns: 1fr; gap: 22px; margin-top: 27px; }
+  .other-principles { grid-template-columns: 1fr; gap: 18px; margin-top: 27px; }
   .principle-note { display: block; grid-row: auto; }
   .other-principles h2 { max-width: 31ch; font-size: 20px; }
   .other-principles p { font-size: 14px; margin-top: 7px; }

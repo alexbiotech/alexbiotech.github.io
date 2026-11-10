@@ -6,11 +6,11 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fafafa">
   <title>AI4Bio：预测之后，需要什么证据 · 宁辉</title>
-  <meta name="description" content="我关心 scaling 能否改善具体生物任务，以及模型的进步如何变成可测、可外推的功能。">
+  <meta name="description" content="我关心 scaling 能否改善具体生物任务，以及模型的进步如何变成可测的功能，以及新条件下的表现。">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Hui Ning">
   <meta property="og:title" content="AI4Bio：预测之后，需要什么证据 · 宁辉">
-  <meta property="og:description" content="我关心 scaling 能否改善具体生物任务，以及模型的进步如何变成可测、可外推的功能。">
+  <meta property="og:description" content="我关心 scaling 能否改善具体生物任务，以及模型的进步如何变成可测的功能，以及新条件下的表现。">
   <meta property="og:url" content="https://alexsynbio.github.io/zh/blog/ai4bio-evidence-after-prediction/">
   <meta property="og:image" content="https://alexsynbio.github.io/assets/cover-ai4bio-evidence.jpg">
   <meta property="og:image:width" content="1440">
@@ -25,20 +25,22 @@
   <link rel="alternate" type="application/rss+xml" title="宁辉 · 博客" href="https://alexsynbio.github.io/zh/feed.xml">
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../../../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../../assets/site.css?v=6">
+  <link rel="stylesheet" href="../../../assets/site.css?v=7">
+  
   <script src="../../../assets/interactions.js?v=2" defer></script>
+  
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
   <div class="site-shell">
     <header class="masthead">
       <a href="../../" class="identity">宁辉</a>
-      <nav aria-label="栏目与语言"><a href="../../principles/">悟道</a><a href="../../ai/" class="domain-nav">AI</a><a href="../../biotechnology/" class="domain-nav">生物科技</a><a href="../" class="domain-nav" aria-current="page">博客</a><a href="../../people/" class="domain-nav">我关注的人</a><a href="../../about/" class="domain-nav">关于</a><a class="language-switch" href="../../../blog/ai4bio-evidence-after-prediction/" lang="en-US" hreflang="en-US" aria-label="Switch to English">English</a></nav>
+      <nav aria-label="栏目与语言"><a href="../../principles/">悟道</a><a href="../../ai/" class="domain-nav">AI</a><a href="../../biotechnology/" class="domain-nav">生物科技</a><a href="../" class="domain-nav" aria-current="page">博客</a><a href="../../people/" class="domain-nav">人物</a><a href="../../about/" class="domain-nav">关于</a><a class="language-switch" href="../../../blog/ai4bio-evidence-after-prediction/" lang="en-US" hreflang="en-US" aria-label="Switch to English">English</a></nav>
     </header>
     <main id="main" tabindex="-1" class="reading reading-article">
         <a href="../" class="back"><span class="link-mark">全部文章</span></a>
-          <article class="essay"><header class="essay-header"><div class="essay-meta"><a href="../../biotechnology/" class="essay-topic">生物科技</a><time datetime="2026-11-06">2026年11月6日</time></div><h1><span class="title-phrase">AI4Bio：</span><span class="title-phrase">预测之后，</span><span class="title-phrase">需要什么证据</span></h1><p class="lead">我关心 scaling 能否改善具体生物任务，以及模型的进步如何变成可测、可外推的功能。</p></header>
-          <figure class="research-figure essay-cover"><div class="art-paper"><img src="../../../assets/cover-ai4bio-evidence.jpg" srcset="../../../assets/cover-ai4bio-evidence-small.jpg 720w, ../../../assets/cover-ai4bio-evidence.jpg 1440w" sizes="(max-width: 1244px) 90vw, 1120px" width="1440" height="576" alt="计算中的 RNA 和蛋白设计，经过细胞中的功能观察，再由测量反馈到下一轮设计。" decoding="async"></div></figure><div class="essay-body"><div class="essay-prose"><p>我曾在 X 上问，AI 的 scaling 规律在生物学里是否仍然成立，也想找一些真正走进产业的案例。这个问题值得拆得更细：增加的是哪种数据、算力还是模型规模？<strong>改善的是哪项预测？它会怎样改变下一步决定？</strong></p><p>生物问题的目标和条件需要一起说明。预测结构、提高表达、区分细胞状态、产生预期功能，各自需要相应的读出。模型在一个数据集上的进步，能否延伸到新的分子、细胞状态和实验条件，是我更想追问的地方。</p><p>RNA 很适合把问题落到具体测量上。Sample 等人的研究把 5′ UTR 序列与核糖体负载配对，并检验模型设计的序列。这让我关注一条研究路径：先定义读出和适用背景，再看模型能否帮助选出更好的候选。<a class="source-link" href="https://www.nature.com/articles/s41587-019-0164-5">论文</a></p><p>我想推进的实验闭环，也从这里开始。保留清楚的比较方法，用没有参与建模的候选和条件检验预测，再把失败结果带回模型。数据的价值体现在它能否区分解释、揭示失效条件，以及改变下一轮设计。</p><p>看产业案例时，我想知道 AI 在哪一步参与了决策，以及后续证据走到了哪里。2025 年一篇 rentosertib 论文报告了随机、安慰剂对照的 2a 期试验，研究持续 12 周、纳入 71 人。它提供了候选进入人体研究后的证据；论文也指出，长期安全性和疗效仍需更大、更长的试验评估。<a class="source-link" href="https://www.nature.com/articles/s41591-025-03743-2">论文</a></p><p>对 AI4Bio，我想逐个判断这样的任务与证据链。scaling 是其中一个重要问题，还要一起看测量质量、目标定义和新条件下的表现。对我自己的研究兴趣而言，值得投入的方向，是让计算帮助选择下一次实验，再让实验修正计算。</p></div></div>
+          <article class="essay"><header class="essay-header"><div class="essay-meta"><a href="../../biotechnology/" class="essay-topic">生物科技</a><time datetime="2026-11-06">2026年11月6日</time></div><h1><span class="title-phrase">AI4Bio：</span><span class="title-phrase">预测之后，</span><span class="title-phrase">需要什么证据</span></h1></header>
+          <figure class="research-figure essay-cover"><div class="art-paper"><img src="../../../assets/cover-ai4bio-evidence.jpg" srcset="../../../assets/cover-ai4bio-evidence-small.jpg 720w, ../../../assets/cover-ai4bio-evidence.jpg 1440w" sizes="(max-width: 1244px) 90vw, 1120px" width="1440" height="576" alt="计算中的 RNA 和蛋白设计，经过细胞中的功能观察，再由测量反馈到下一轮设计。" decoding="async"></div></figure><div class="essay-body"><div class="essay-prose"><p>我曾在 X 上问，AI 的 scaling 规律在生物学里是否仍然成立，也想找一些真正走进产业的案例。这个问题值得拆得更细：增加的是哪种数据、算力还是模型规模？<strong>改善的是哪项预测？它会怎样改变下一步决定？</strong></p><p>生物问题的目标和条件需要一起说明。预测结构、提高表达、区分细胞状态、产生预期功能，各自需要相应的读出。模型在一个数据集上的进步，能否延伸到新的分子、细胞状态和实验条件，是我更想追问的地方。</p><p>RNA 很适合把问题落到具体测量上。Sample 等人的研究把 5′ UTR 序列与核糖体负载配对，并检验模型设计的序列。这让我关注一条研究路径：先定义读出和适用背景，再看模型能否帮助选出更好的候选。<a class="source-link" href="https://www.nature.com/articles/s41587-019-0164-5">论文</a></p><p>我想推进的实验闭环，也从这里开始。保留清楚的比较方法，用没有参与建模的候选和条件检验预测，再把失败结果带回模型。数据的价值体现在它能否区分解释、揭示失效条件，以及改变下一轮设计。</p><p>看产业案例时，我想知道 AI 在哪一步参与了决策，以及后续证据走到了哪里。2025 年一篇 rentosertib 论文报告了随机、安慰剂对照的 2a 期试验，研究持续 12 周、纳入 71 人。它提供了候选进入人体研究后的证据；论文也指出，长期安全性和疗效仍需更大、更长的试验评估。<a class="source-link" href="https://www.nature.com/articles/s41591-025-03743-2">论文</a></p><p>对 AI4Bio，我想逐个判断这样的任务与证据链。scaling 是其中一个重要问题，还要一起看测量质量、目标定义和新条件下的表现。对我自己的研究兴趣而言，值得投入的方向，是让计算帮助选择下一次实验，再用实验结果改进下一轮建模。</p></div></div>
           <section class="related-notes span-all"><h2>延伸阅读</h2><div class="related-grid"><section data-spotlight><h3><a href="../from-encoded-function-to-realized-function/" class="statement-link">从编码功能，到实现功能</a></h3></section><section data-spotlight><h3><a href="../getting-agents-to-finish/" class="statement-link">我怎么让 agents 真正完成任务</a></h3></section></div></section></article>
     </main>
     <footer>

@@ -11,10 +11,26 @@
   const result = page.querySelector('#people-count');
   const empty = page.querySelector('.people-empty');
   const buttons = Array.from(page.querySelectorAll('[data-category-filter]'));
+  const resets = Array.from(page.querySelectorAll('[data-reset-people]'));
+  const languageSwitch = document.querySelector('.language-switch');
+  const otherLanguage = new URL(languageSwitch.href);
   const chinese = document.documentElement.lang.startsWith('zh');
-  let category = 'all';
   const normalize = value => value.normalize('NFKC').toLocaleLowerCase().trim();
   const searchable = new Map(people.map(person => [person, normalize(person.dataset.search)]));
+  let category = 'all';
+
+  function updateLanguageSwitch() {
+    otherLanguage.search = location.search;
+    otherLanguage.hash = location.hash;
+    languageSwitch.href = otherLanguage.href;
+  }
+
+  function setPersonHash(id) {
+    const url = new URL(location.href);
+    url.hash = id;
+    history.replaceState(null, '', url);
+    updateLanguageSwitch();
+  }
 
   function applyFilter(writeUrl = true) {
     const words = normalize(search.value).split(/\s+/).filter(Boolean);
@@ -31,15 +47,19 @@
       list.append(person);
     });
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.categoryFilter === category)));
-    result.textContent = chinese ? `显示 ${count} / ${people.length} 位` : `Showing ${count} of ${people.length} people`;
+    result.textContent = chinese ? `显示 ${count} / ${people.length} 人` : `Showing ${count} of ${people.length} people`;
     empty.hidden = count > 0;
+    const active = Boolean(search.value || category !== 'all' || recent.checked || sort.value !== 'default');
+    resets.forEach(button => { button.disabled = !active; });
     if (writeUrl) {
       const url = new URL(location.href);
+      url.hash = '';
       [['q', search.value.trim()], ['category', category === 'all' ? '' : category],
         ['recent', recent.checked ? '1' : ''], ['sort', sort.value === 'recent' ? 'recent' : '']]
         .forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
       history.replaceState(null, '', url);
     }
+    updateLanguageSwitch();
   }
 
   function reset() {
@@ -61,11 +81,11 @@
   }
 
   function openLinkedPerson() {
-    const id = location.hash.slice(1);
-    const person = people.find(item => item.id === id);
+    const person = people.find(item => item.id === location.hash.slice(1));
     if (!person) return;
     if (person.hidden) reset();
     person.open = true;
+    setPersonHash(person.id);
     person.scrollIntoView({ block: 'start' });
   }
 
@@ -78,12 +98,16 @@
     category = button.dataset.categoryFilter;
     applyFilter();
   }));
-  page.querySelectorAll('[data-reset-people]').forEach(button => button.addEventListener('click', () => {
+  resets.forEach(button => button.addEventListener('click', () => {
     reset();
     search.focus();
   }));
+  people.forEach(person => person.addEventListener('toggle', () => {
+    if (person.open && !person.hidden) setPersonHash(person.id);
+    else if (location.hash.slice(1) === person.id) setPersonHash('');
+  }));
   window.addEventListener('popstate', () => { restore(); openLinkedPerson(); });
-  window.addEventListener('hashchange', openLinkedPerson);
+  window.addEventListener('hashchange', () => { openLinkedPerson(); updateLanguageSwitch(); });
   restore();
   openLinkedPerson();
 })();
