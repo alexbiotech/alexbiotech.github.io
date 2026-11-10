@@ -39,6 +39,10 @@
 .person-links { display: flex; flex-wrap: wrap; gap: 0 24px; }
 .person-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
 .person-updates, .person-background { margin-top: 18px; }
+.person-reading { margin-top: 22px; border-left: 2px solid var(--accent); padding-left: 16px; }
+.person-reading h3 { font-size: 17px; }
+.person-reading p { font-size: 14px; line-height: 1.8; color: var(--body-ink); }
+.person-reading p span { display: block; font-size: 12px; color: var(--secondary-ink); margin-bottom: 4px; }
 .person-updates > ul { list-style: none; padding-left: 0; }
 .person-update { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 14px; padding-block: 10px; border-top: 1px solid var(--people-rule); }
 .person-update-meta { font-size: 12px; color: var(--secondary-ink); }
