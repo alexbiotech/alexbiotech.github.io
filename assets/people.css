@@ -25,7 +25,7 @@
 .people-categories button, .people-reset { min-height: 44px; padding: 8px 0; border: 0; background: transparent; font: inherit; font-size: 14px; color: var(--secondary-ink); cursor: pointer; }
 .people-categories button[aria-pressed="true"] { color: var(--accent); text-decoration: underline; text-underline-offset: 7px; font-weight: 600; }
 .people-categories button:hover, .people-reset:hover:not(:disabled) { color: var(--accent); }
-.people-reset:disabled { display: none; }
+.people-reset:disabled { visibility: hidden; }
 .people-results { display: flex; align-items: center; gap: 8px 24px; color: var(--secondary-ink); font-size: 13px; }
 .people-list { margin-top: 4px; }
 .person { border-bottom: 1px solid var(--people-rule); scroll-margin-top: 24px; }
@@ -93,35 +93,3 @@
 }
 
 .person-name-main { display: inline-block; max-width: 100%; text-wrap: balance; vertical-align: top; }
-
-.people-reading-entries { margin-top: 28px; }
-.people-reading-entries h2 { margin: 0 0 16px; font-size: 19px; font-weight: 600; }
-.people-reading-entries ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 40px; list-style: none; padding: 0; margin: 0; }
-.people-reading-entries li { display: grid; align-content: start; gap: 6px; font-size: 16px; line-height: 1.55; }
-.people-reading-entries a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-.people-reading-entries li > span { color: var(--secondary-ink); font-size: 13px; }
-.person-reading-title { display: block; margin-bottom: 7px; font-size: 16px; font-weight: 500; text-wrap: balance; }
-.person-current { color: var(--secondary-ink); font-size: 14px; }
-.person-latest { font-size: 11px; }
-@media (max-width: 700px) {
-  .people-reading-entries ul { grid-template-columns: 1fr; gap: 14px; }
-  .people-reading-entries li { gap: 3px; }
-  .people-reading-entries { margin-top: 22px; }
-}
-
-@media (max-width: 700px) {
-  .people-filter-row { gap: 0 16px; }
-  .people-reading-entries { margin-top: 18px; }
-  .people-reading-entries h2 { font-size: 17px; margin-bottom: 8px; }
-  .people-reading-entries ul { gap: 10px; }
-  .people-reading-entries li { display: block; font-size: 15px; }
-  .people-reading-entries li > span { display: inline-block; margin-left: 8px; }
-}
-
-@media (max-width: 700px) { .people-categories { gap: 0 12px; } }
-
-@media (max-width: 700px) {
-  .people-reading-entries { margin-top: 12px; }
-  .people-reading-entries h2 { margin-bottom: 6px; }
-  .people-reading-entries ul { gap: 8px; }
-}

@@ -10,7 +10,6 @@
   const recent = page.querySelector('#people-recent');
   const result = page.querySelector('#people-count');
   const empty = page.querySelector('.people-empty');
-  const readingEntries = page.querySelector('.people-reading-entries');
   const buttons = Array.from(page.querySelectorAll('[data-category-filter]'));
   const resets = Array.from(page.querySelectorAll('[data-reset-people]'));
   const languageSwitch = document.querySelector('.language-switch');
@@ -58,7 +57,6 @@
     result.textContent = count === people.length ? (chinese ? `${count} 人` : `${count} people`) : (chinese ? `${count} / ${people.length} 人` : `${count} of ${people.length} people`);
     empty.hidden = count > 0;
     const active = Boolean(search.value || category !== 'all' || recent.checked || sort.value !== 'default');
-    readingEntries.hidden = active;
     resets.forEach(button => { button.disabled = !active; });
     if (writeUrl) {
       const url = new URL(location.href);
