@@ -30,7 +30,7 @@
 .people-list { margin-top: 4px; }
 .person { border-bottom: 1px solid var(--people-rule); scroll-margin-top: 24px; }
 .person:first-child { border-top: 1px solid var(--people-rule); }
-.person summary { position: relative; display: grid; grid-template-columns: minmax(170px, .7fr) minmax(0, 1.4fr) 20px; gap: 24px; align-items: start; padding-block: 19px; cursor: pointer; list-style: none; }
+.person summary { position: relative; display: grid; grid-template-columns: minmax(16.5rem, .7fr) minmax(0, 1.4fr) 20px; gap: 24px; align-items: start; padding-block: 19px; cursor: pointer; list-style: none; }
 .person summary::-webkit-details-marker { display: none; }
 .person summary::after { content: "+"; color: var(--accent); font-size: 24px; line-height: 1.3; text-align: center; }
 .person[open] summary::after { content: "−"; }
@@ -82,6 +82,7 @@
   .person-current { font-size: 14px; }
   .person-latest { margin-top: 3px; }
   .person-body { padding: 0 0 22px; }
+  .person-background li, .person-update p, .person-reading p { font-size: 16px; }
   .person-update { grid-template-columns: 1fr; gap: 4px; }
   .person-update-meta { display: flex; flex-wrap: wrap; gap: 12px; }
   .person-links { gap: 0 20px; }
