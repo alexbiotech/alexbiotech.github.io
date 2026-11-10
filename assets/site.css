@@ -70,7 +70,7 @@ a:has(.link-mark):hover { text-decoration: none; color: var(--accent); }
 .art-paper::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to right, var(--background), transparent 7%, transparent 93%, var(--background)), linear-gradient(to bottom, var(--background), transparent 12%, transparent 88%, var(--background)); }
 .domain-art img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
 .domain-link:hover img, .domain-link:focus-visible img { transform: scale(1.035); }
-.domain h2 { width: fit-content; min-height: 1.6em; padding-block: 4px; font-size: clamp(27px, 2.3vw, 36px); font-weight: 600; line-height: 1.3; letter-spacing: -.9px; }
+.domain h2 { width: fit-content; min-height: 1.6em; padding-block: 4px; color: var(--accent); font-size: clamp(27px, 2.3vw, 36px); font-weight: 600; line-height: 1.3; letter-spacing: -.9px; }
 .domain p { font-size: 16px; line-height: 1.65; margin-top: 8px; color: var(--secondary-ink); text-wrap: balance; }
 footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 28px; margin-top: auto; padding-top: clamp(38px, 4vw, 64px); font-size: 13px; }
 footer a { min-height: 44px; display: inline-flex; align-items: center; }
