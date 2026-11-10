@@ -1,5 +1,13 @@
 .people-layout { margin-top: 31px; }
-.people-layout .lead { margin-bottom: 32px; }
+.reading-layout.people-layout { display: block; }
+.people-layout > h1 { margin-bottom: 8px; }
+.people-layout .reading-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: none;
+}
+.people-layout .lead { max-width: 68ch; margin-bottom: 28px; }
 
 .people-controls { 
   display: flex; 
@@ -207,7 +215,8 @@
 }
 
 .person-section,
-.person-type {
+.person-type,
+.person-years {
   padding: 3px 8px;
   background: #f5f5f5;
   border-radius: 3px;
@@ -335,21 +344,6 @@
   color: var(--secondary-ink);
   font-size: 12px;
   margin-top: 2px;
-}
-
-.deceased-marker {
-  color: var(--secondary-ink);
-  font-size: 13px;
-  font-style: italic;
-  margin-top: 8px;
-}
-
-.expand-hint {
-  margin-top: 12px;
-  font-size: 13px;
-  color: var(--accent);
-  text-align: center;
-  opacity: .8;
 }
 
 @media (min-width: 901px) {

@@ -41,7 +41,7 @@
     sectionFilters.forEach(btn => {
       const section = btn.dataset.section;
       const countEl = btn.querySelector('.count');
-      if (countEl && counts[section]) {
+      if (countEl && counts[section] != null) {
         countEl.textContent = `(${counts[section]})`;
       }
     });
@@ -63,7 +63,7 @@
           person.name_zh,
           person.tagline,
           person.past,
-          person.now || '',
+          publicNow(person),
           person.ideas,
           person.sub
         ].join(' ').toLowerCase();
@@ -86,10 +86,14 @@
     grid.innerHTML = filtered.map(person => createPersonCard(person)).join('');
     
     grid.querySelectorAll('.person-card').forEach(card => {
-      card.addEventListener('click', () => toggleCard(card));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
+        toggleCard(card);
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.target.closest('a')) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
           toggleCard(card);
         }
       });
@@ -116,18 +120,27 @@
     }
   }
 
-  function createPersonCard(person) {
-    const showNow = person.now && person.now_evidence !== '推断';
-    const hasVerifiedRecent = person.recent && person.recent.length > 0 && 
-      person.recent.some(r => r.evidence === '已核实' || r.evidence === '材料支持');
-    
-    const displayRecent = hasVerifiedRecent ? 
-      person.recent.filter(r => r.evidence === '已核实' || r.evidence === '材料支持') : [];
+  function publicNow(person) {
+    if (!person.now || person.deceased || person.now_evidence === '推断') return '';
+    const parts = person.now.split(/(?<=[。；;])/);
+    const internal = /证据|材料支持|已核实|旧知|此项为|此项职务|此项主要|单一来源|未复核|未核实|不写入|本轮|主要依据|依据/;
+    let text = parts.filter(part => part.trim() && !internal.test(part)).join('');
+    text = text.replace(/[；;]+\s*$/g, '。').replace(/\s+/g, ' ').trim();
+    if (text && !/[。！？.]$/.test(text)) text += '。';
+    return text;
+  }
 
-    const previewText = person.past + (showNow ? ' ' + person.now : '');
+  function createPersonCard(person) {
+    const nowText = publicNow(person);
+    const displayRecent = (person.deceased ? [] : (person.recent || []))
+      .filter(item => item.evidence === '已核实' || item.evidence === '材料支持')
+      .slice(0, 2);
+
+    const previewText = person.past + (nowText ? ' ' + nowText : '');
+    const years = formatYears(person);
     
     return `
-      <article class="person-card" data-person-id="${person.id}" data-expanded="false" aria-expanded="false" tabindex="0" role="button">
+      <article class="person-card" data-person-id="${escapeHtml(person.id)}" data-expanded="false" aria-expanded="false" tabindex="0">
         <div class="person-header">
           <div class="person-name-group">
             <h2 class="person-name">${escapeHtml(person.name)}</h2>
@@ -138,6 +151,7 @@
         <div class="person-meta">
           <span class="person-section">${escapeHtml(person.section)}</span>
           ${person.sub ? `<span class="person-type">${escapeHtml(person.sub)}</span>` : ''}
+          ${years ? `<span class="person-years">${escapeHtml(years)}</span>` : ''}
         </div>
         
         ${person.tagline ? `<p class="person-tagline">${escapeHtml(person.tagline)}</p>` : ''}
@@ -148,8 +162,7 @@
           <div class="detail-section">
             <h3>${isZh ? '过去' : 'Background'}</h3>
             <p>${escapeHtml(person.past)}</p>
-            ${showNow ? `<p><strong>${isZh ? '现在' : 'Now'}:</strong> ${escapeHtml(person.now)}</p>` : ''}
-            ${person.deceased ? `<p class="deceased-marker">${formatDeathDate(person.death_date)}</p>` : ''}
+            ${nowText ? `<p>${escapeHtml(nowText)}</p>` : ''}
           </div>
           
           <div class="detail-section">
@@ -181,8 +194,6 @@
             </div>
           ` : ''}
         </div>
-        
-        <p class="expand-hint">${isZh ? '点击查看详情' : 'Click to expand'}</p>
       </article>
     `;
   }
@@ -213,14 +224,12 @@
     return html;
   }
 
-  function formatDeathDate(dateStr) {
-    if (!dateStr) {
-      return isZh ? '已故' : 'Deceased';
-    }
-    if (dateStr.length === 4) {
-      return isZh ? `${dateStr} 年辞世` : `d. ${dateStr}`;
-    }
-    return isZh ? `${dateStr} 辞世` : `d. ${dateStr}`;
+  function formatYears(person) {
+    if (!person.deceased) return '';
+    const date = person.death_date || '';
+    const year = date.slice(0, 4);
+    if (/^\d{4}$/.test(year)) return year;
+    return isZh ? '已故' : 'Deceased';
   }
 
   function escapeHtml(text) {
