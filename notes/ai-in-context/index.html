@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fafafa">
+  <title>AI in context: branches that meet · Hui Ning</title>
+  <meta name="description" content="Tracing AI back to its original questions, and across to the neighboring approaches that still shape it.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hui Ning">
+  <meta property="og:title" content="AI in context: branches that meet · Hui Ning">
+  <meta property="og:description" content="Tracing AI back to its original questions, and across to the neighboring approaches that still shape it.">
+  <meta property="og:url" content="https://alexsynbio.github.io/notes/ai-in-context/">
+  <meta property="og:image" content="https://alexsynbio.github.io/assets/ai-leverage.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="A person uses AI as a lever to turn an idea into analysis, a website, and software.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <link rel="canonical" href="https://alexsynbio.github.io/notes/ai-in-context/">
+  <link rel="alternate" hreflang="en-US" href="https://alexsynbio.github.io/notes/ai-in-context/">
+  <link rel="alternate" hreflang="zh-CN" href="https://alexsynbio.github.io/zh/notes/ai-in-context/">
+  <link rel="alternate" hreflang="x-default" href="https://alexsynbio.github.io/notes/ai-in-context/">
+  <link rel="alternate" type="application/rss+xml" title="Hui Ning · Blog" href="https://alexsynbio.github.io/feed.xml">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/site.css?v=8">
+  
+  <script src="../../assets/interactions.js?v=2" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a href="../../" class="identity">Hui Ning</a>
+      <nav aria-label="Pages and language"><a href="../../principles/">Principles</a><a href="../../ai/" class="domain-nav" aria-current="page">AI</a><a href="../../biotechnology/" class="domain-nav">Biotech</a><a href="../../blog/" class="domain-nav">Blog</a><a href="../../people/" class="domain-nav">People</a><a href="../../about/" class="domain-nav">About</a><a class="language-switch" href="../../zh/notes/ai-in-context/" lang="zh-CN" hreflang="zh-CN" aria-label="切换到中文">中文</a></nav>
+    </header>
+    <main id="main" tabindex="-1" class="reading reading-article">
+        <a href="../../ai/" class="back"><span class="link-mark">AI</span></a>
+          <article class="essay context-note"><header class="essay-header"><h1>AI in context: branches that meet</h1></header>
+          <div class="essay-body"><div class="essay-prose"><p>I want to understand AI along two axes. Looking across the present, I can compare neighboring approaches and ask where their ideas meet. Looking backward, I can follow a problem to its origins and see why different branches formed. That gives me a better basis for thinking about what might change next.</p></div><section data-spotlight><h2>Different beginnings</h2><p>Mathematics and statistics supplied a long forehistory: logic, probability, optimization, and estimation from observations. Least squares was published by Legendre in 1805 and developed by Gauss in 1809. These questions predate AI as a named field.</p><p>The 1956 Dartmouth meeting helped establish that field. Symbolic approaches pursued reasoning through explicit representations and rules. In a parallel line, Rosenblatt’s 1958 perceptron learned classification through changing connection weights. One branch emphasized describing knowledge; another emphasized learning from examples.</p><p>Later branches offered different answers to prediction. CART (1984) organized decisions through successive partitions. Support-vector networks (1995) and kernel methods connected classification with geometry and statistical learning; random forests (2001) combined trees. These landmarks came after the perceptron and developed alongside neural approaches.</p></section><section data-spotlight><h2>Representation, scale, and feedback</h2><p>The 1986 backpropagation paper by Rumelhart, Hinton, and Williams helped establish learning internal representations in multilayer networks. The 2012 ImageNet result brought deep visual learning together with large datasets and GPU training. The 2017 Transformer offered an attention-based architecture for sequence modeling.</p><p><a class="source-link" href="https://arxiv.org/abs/2001.08361">Scaling laws for language models</a>, studied by Kaplan and colleagues in 2020, related prediction loss to model size, data, and training compute. They describe empirical relationships within studied regimes. Whether those relationships carry into a new task remains a separate question.</p><p>Reinforcement learning has its own history of learning action from rewards; DQN (2015) connected it with deep representations. Diffusion generation developed through another branch, including Sohl-Dickstein and colleagues’ 2015 work and DDPM (2020). Architecture, generative process, and feedback describe different aspects of a system, so these branches can meet.</p></section><section class="context-comparison"><h2>A cross-section of the present</h2><div class="context-rows"><article class="context-row"><h3>Prediction and statistical learning</h3><p>Regression, trees, kernels, and neural networks connect observations with predicted outcomes. Their assumptions and representations differ.</p><p class="context-question">What does a simpler account explain, and where does it stop?</p></article><article class="context-row"><h3>Representations and scale</h3><p>Deep networks learn representations; Transformer architectures and scaling studies address different parts of their development.</p><p class="context-question">Does an improvement carry beyond the distribution on which it was measured?</p></article><article class="context-row"><h3>Generation and design</h3><p>Language generation and diffusion connect learned patterns with new candidates. Protein design is one meeting point with biology.</p><p class="context-question">What evidence turns a plausible candidate into a useful scientific result?</p></article><article class="context-row"><h3>Action and feedback</h3><p>Reinforcement learning studies sequential decisions. Agent systems also bring in planning, memory, and external feedback.</p><p class="context-question">Which parts of the goal can feedback actually capture?</p></article></div></section><section data-spotlight><h2>Where I want to follow the connections</h2><p>RFdiffusion (2023) is a concrete historical crossing from diffusion into protein design. The <a class="source-link" href="/notes/biology-in-context/">biology note</a> follows the older distinction between predicting a structure and designing something new.</p><p>For the immune-regulation questions I hope to pursue in postdoctoral research, I want to understand how AI’s progress depends on biological evidence. If measurements become more informative and comparable, more questions may become tractable. If context and feedback remain difficult to capture, a larger model may leave the central uncertainty unresolved. Which missing observation would most change the explanation?</p></section></div>
+          <details class="context-sources"><summary>Sources</summary><ul class="reading-links"><li><a href="https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai">A Short History of AI</a><span> · Stanford AI100 · 2016</span></li><li><a href="https://www.e-rara.ch/zut/content/titleinfo/10838079">Nouvelles méthodes pour la détermination des orbites des comètes</a><span> · Adrien-Marie Legendre · 1805</span></li><li><a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication300v1.pdf">Precision Measurement and Calibration: Selected NBS Papers on Statistical Concepts and Procedures</a><span> · National Bureau of Standards</span></li><li><a href="https://doi.org/10.1037/h0042519">The perceptron: A probabilistic model for information storage and organization in the brain</a><span> · Frank Rosenblatt · 1958</span></li><li><a href="https://www.routledge.com/Classification-and-Regression-Trees/Breiman-Friedman-Stone-Olshen/p/book/9780412048418">Classification and Regression Trees</a><span> · Breiman, Friedman, Olshen &amp; Stone · 1984</span></li><li><a href="https://www.nature.com/articles/323533a0">Learning representations by back-propagating errors</a><span> · Rumelhart, Hinton &amp; Williams · 1986</span></li><li><a href="https://doi.org/10.1007/BF00994018">Support-vector networks</a><span> · Corinna Cortes &amp; Vladimir Vapnik · 1995</span></li><li><a href="https://doi.org/10.1023/A:1010933404324">Random Forests</a><span> · Leo Breiman · 2001</span></li><li><a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">ImageNet Classification with Deep Convolutional Neural Networks</a><span> · Krizhevsky, Sutskever &amp; Hinton · 2012</span></li><li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a><span> · Vaswani et al. · 2017</span></li><li><a href="https://arxiv.org/abs/2001.08361">Scaling Laws for Neural Language Models</a><span> · Kaplan et al. · 2020</span></li><li><a href="https://www.nature.com/articles/nature14236">Human-level control through deep reinforcement learning</a><span> · Mnih et al. · 2015</span></li><li><a href="https://arxiv.org/abs/1503.03585">Deep Unsupervised Learning using Nonequilibrium Thermodynamics</a><span> · Sohl-Dickstein et al. · 2015</span></li><li><a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models</a><span> · Ho, Jain &amp; Abbeel · 2020</span></li><li><a href="https://www.nature.com/articles/s41586-023-06415-8">De novo design of protein structure and function with RFdiffusion</a><span> · Watson et al. · 2023</span></li></ul></details></article>
+    </main>
+    <footer>
+      <a href="mailto:nh21@tsinghua.org.cn">nh21@tsinghua.org.cn</a>
+      <nav aria-label="Public research profiles">
+        <a href="../../about/">About</a>
+        <a href="https://scholar.google.com/citations?user=Jzg5EIkAAAAJ" lang="en">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-6909-4282" lang="en">ORCID</a>
+      </nav>
+    </footer>
+  </div>
+  <div class="pointer-halo" aria-hidden="true"></div>
+</body>
+</html>

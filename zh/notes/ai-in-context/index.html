@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#fafafa">
+  <title>把 AI 放回它的问题与分支中 · 宁辉</title>
+  <meta name="description" content="沿着最早的问题往回追，也看看今天仍在相互借鉴的不同路线。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hui Ning">
+  <meta property="og:title" content="把 AI 放回它的问题与分支中 · 宁辉">
+  <meta property="og:description" content="沿着最早的问题往回追，也看看今天仍在相互借鉴的不同路线。">
+  <meta property="og:url" content="https://alexsynbio.github.io/zh/notes/ai-in-context/">
+  <meta property="og:image" content="https://alexsynbio.github.io/assets/ai-leverage.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="人以 AI 为杠杆，把想法转化为数据分析、网页和软件的手绘图。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <link rel="canonical" href="https://alexsynbio.github.io/zh/notes/ai-in-context/">
+  <link rel="alternate" hreflang="en-US" href="https://alexsynbio.github.io/notes/ai-in-context/">
+  <link rel="alternate" hreflang="zh-CN" href="https://alexsynbio.github.io/zh/notes/ai-in-context/">
+  <link rel="alternate" hreflang="x-default" href="https://alexsynbio.github.io/notes/ai-in-context/">
+  <link rel="alternate" type="application/rss+xml" title="宁辉 · 博客" href="https://alexsynbio.github.io/zh/feed.xml">
+  <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../../../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../../assets/site.css?v=8">
+  
+  <script src="../../../assets/interactions.js?v=2" defer></script>
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a href="../../" class="identity">宁辉</a>
+      <nav aria-label="栏目与语言"><a href="../../principles/">悟道</a><a href="../../ai/" class="domain-nav" aria-current="page">AI</a><a href="../../biotechnology/" class="domain-nav">生物科技</a><a href="../../blog/" class="domain-nav">博客</a><a href="../../people/" class="domain-nav">人物</a><a href="../../about/" class="domain-nav">关于</a><a class="language-switch" href="../../../notes/ai-in-context/" lang="en-US" hreflang="en-US" aria-label="Switch to English">English</a></nav>
+    </header>
+    <main id="main" tabindex="-1" class="reading reading-article">
+        <a href="../../ai/" class="back"><span class="link-mark">AI</span></a>
+          <article class="essay context-note"><header class="essay-header"><h1>把 AI 放回它的问题与分支中</h1></header>
+          <div class="essay-body"><div class="essay-prose"><p>理解 AI，我想同时看两个方向。横着看，同一时期有哪些相邻方法，它们各自在解决什么问题，又在哪里相遇？纵着看，一个问题最早从哪里来，后来为什么分出了不同路线？把这些联系弄清楚，也更容易判断未来的变化需要哪些条件。</p></div><section data-spotlight><h2>起点不止一个</h2><p>AI 成为一个领域之前，数学与统计学已经积累了逻辑、概率、优化和从观测中估计关系的方法。最小二乘法由勒让德于 1805 年发表，高斯在 1809 年进一步发展。这些问题比 AI 的名字早得多。</p><p>1956 年的达特茅斯会议推动了 AI 领域的形成。符号路线尝试用明确的表示与规则进行推理；另一条并行路线中，罗森布拉特在 1958 年提出感知机，通过调整连接权重学习分类。一条线索从怎样表达知识出发，另一条从怎样向样本学习出发。</p><p>后来，预测问题又有了不同解法。CART（1984）用逐层分割组织判断；支持向量网络（1995）与核方法把分类问题联系到几何和统计学习；随机森林（2001）结合多棵树。这些代表性工作晚于感知机，与神经网络路线并行发展。</p></section><section data-spotlight><h2>表征、规模与反馈</h2><p>Rumelhart、Hinton 和 Williams 在 1986 年发表的反向传播论文，推动了多层网络内部表征的学习。2012 年的 ImageNet 工作把深度视觉学习、大规模数据和 GPU 训练结合起来；2017 年的 Transformer 则提出了基于注意力的序列建模架构。</p><p>Kaplan 等人在 2020 年研究的<a class="source-link" href="https://arxiv.org/abs/2001.08361">语言模型规模规律</a>，描述了预测损失与模型规模、数据量和训练计算量之间的经验关系。换到另一个问题，这种关系是否仍成立，需要重新看证据。</p><p>强化学习沿着“怎样从奖励中学习行动”发展，DQN（2015）把它与深度表征结合。扩散生成是另一条分支，包括 Sohl-Dickstein 等人 2015 年的工作和 DDPM（2020）。架构、生成过程与反馈方式描述的是系统的不同方面，因此可以交汇。</p></section><section class="context-comparison"><h2>把今天的几条路线放在一起看</h2><div class="context-rows"><article class="context-row"><h3>预测与统计学习</h3><p>回归、树、核方法和神经网络都把观测联系到预测结果，但依赖的假设与表示不同。</p><p class="context-question">简单的解释已经覆盖了什么，又在哪里遇到边界？</p></article><article class="context-row"><h3>表征与规模</h3><p>深度网络学习内部表征，Transformer 架构与规模规律分别回答其中不同层面的问题。</p><p class="context-question">在一个数据分布中看到的进步，换个情境是否仍成立？</p></article><article class="context-row"><h3>生成与设计</h3><p>语言生成和扩散把学到的规律联系到新的候选；蛋白质设计是它们与生物学的一个交点。</p><p class="context-question">怎样的证据，才能让看起来合理的候选成为有用的科学结果？</p></article><article class="context-row"><h3>行动与反馈</h3><p>强化学习研究连续决策，agent 系统还连接了规划、记忆和外部反馈。</p><p class="context-question">反馈究竟覆盖了目标的哪些部分？</p></article></div></section><section data-spotlight><h2>接下来想沿着哪里读</h2><p>RFdiffusion（2023）是扩散进入蛋白质设计的一项具体历史作品。<a class="source-link" href="/zh/notes/biology-in-context/">生物学笔记</a>会沿着更早的线索，追问结构预测与从头设计分别要回答什么。</p><p>对于博士后阶段希望深入的免疫调控问题，我想理解 AI 的进展怎样依赖生物学证据。如果测量更能回答问题、不同结果也更容易比较，一些原来难以研究的问题可能会变得可解；如果情境与反馈仍难以把握，更大的模型也可能留下原来的关键疑问。缺少的哪项观察，最可能改变我们对问题的解释？</p></section></div>
+          <details class="context-sources"><summary>原文</summary><ul class="reading-links"><li><a href="https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai">AI 简史</a><span> · Stanford AI100 · 2016</span></li><li><a href="https://www.e-rara.ch/zut/content/titleinfo/10838079">彗星轨道测定的新方法</a><span> · Adrien-Marie Legendre · 1805</span></li><li><a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication300v1.pdf">精密测量与校准：统计概念与方法</a><span> · National Bureau of Standards</span></li><li><a href="https://doi.org/10.1037/h0042519">感知机：脑中信息存储与组织的概率模型</a><span> · Frank Rosenblatt · 1958</span></li><li><a href="https://www.routledge.com/Classification-and-Regression-Trees/Breiman-Friedman-Stone-Olshen/p/book/9780412048418">分类与回归树</a><span> · Breiman, Friedman, Olshen &amp; Stone · 1984</span></li><li><a href="https://www.nature.com/articles/323533a0">通过误差反向传播学习表征</a><span> · Rumelhart, Hinton &amp; Williams · 1986</span></li><li><a href="https://doi.org/10.1007/BF00994018">支持向量网络</a><span> · Corinna Cortes &amp; Vladimir Vapnik · 1995</span></li><li><a href="https://doi.org/10.1023/A:1010933404324">随机森林</a><span> · Leo Breiman · 2001</span></li><li><a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">使用深度卷积神经网络进行 ImageNet 分类</a><span> · Krizhevsky, Sutskever &amp; Hinton · 2012</span></li><li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a><span> · Vaswani et al. · 2017</span></li><li><a href="https://arxiv.org/abs/2001.08361">神经语言模型的规模规律</a><span> · Kaplan et al. · 2020</span></li><li><a href="https://www.nature.com/articles/nature14236">通过深度强化学习实现人类水平的控制</a><span> · Mnih et al. · 2015</span></li><li><a href="https://arxiv.org/abs/1503.03585">基于非平衡热力学的深度无监督学习</a><span> · Sohl-Dickstein et al. · 2015</span></li><li><a href="https://arxiv.org/abs/2006.11239">去噪扩散概率模型</a><span> · Ho, Jain &amp; Abbeel · 2020</span></li><li><a href="https://www.nature.com/articles/s41586-023-06415-8">使用 RFdiffusion 从头设计蛋白质结构与功能</a><span> · Watson et al. · 2023</span></li></ul></details></article>
+    </main>
+    <footer>
+      <a href="mailto:nh21@tsinghua.org.cn">nh21@tsinghua.org.cn</a>
+      <nav aria-label="公开学术主页">
+        <a href="../../about/">关于</a>
+        <a href="https://scholar.google.com/citations?user=Jzg5EIkAAAAJ" lang="en">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-6909-4282" lang="en">ORCID</a>
+      </nav>
+    </footer>
+  </div>
+  <div class="pointer-halo" aria-hidden="true"></div>
+</body>
+</html>

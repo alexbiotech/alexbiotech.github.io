@@ -6,7 +6,7 @@
   const people = Array.from(list.querySelectorAll('.person'));
   const form = page.querySelector('.people-toolbar');
   const search = page.querySelector('#people-search');
-  const sort = page.querySelector('#people-sort');
+  const sort = form.elements.namedItem('people-sort');
   const recent = page.querySelector('#people-recent');
   const result = page.querySelector('#people-count');
   const empty = page.querySelector('.people-empty');
@@ -17,7 +17,14 @@
   const chinese = document.documentElement.lang.startsWith('zh');
   const normalize = value => value.normalize('NFKC').toLocaleLowerCase().trim();
   const searchable = new Map(people.map(person => [person, normalize(person.dataset.search)]));
+  const localDate = date => [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
+  const today = new Date();
+  const cutoff = new Date(today);
+  cutoff.setDate(cutoff.getDate() - 89);
+  const firstDate = localDate(cutoff);
+  const lastDate = localDate(today);
   let category = 'all';
+  let hashUpdate = 0;
 
   function updateLanguageSwitch() {
     otherLanguage.search = location.search;
@@ -28,7 +35,7 @@
   function setPersonHash(id) {
     const url = new URL(location.href);
     url.hash = id;
-    history.replaceState(null, '', url);
+    if (url.href !== location.href) history.replaceState(null, '', url);
     updateLanguageSwitch();
   }
 
@@ -40,14 +47,14 @@
     let count = 0;
     ordered.forEach(person => {
       const visible = (category === 'all' || person.dataset.categories.split(' ').includes(category))
-        && (!recent.checked || person.dataset.recent === 'true')
+        && (!recent.checked || (person.dataset.latest >= firstDate && person.dataset.latest <= lastDate))
         && words.every(word => searchable.get(person).includes(word));
       person.hidden = !visible;
       if (visible) count += 1;
       list.append(person);
     });
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.categoryFilter === category)));
-    result.textContent = chinese ? `显示 ${count} / ${people.length} 人` : `Showing ${count} of ${people.length} people`;
+    result.textContent = count === people.length ? (chinese ? `${count} 人` : `${count} people`) : (chinese ? `${count} / ${people.length} 人` : `${count} of ${people.length} people`);
     empty.hidden = count > 0;
     const active = Boolean(search.value || category !== 'all' || recent.checked || sort.value !== 'default');
     resets.forEach(button => { button.disabled = !active; });
@@ -57,7 +64,7 @@
       [['q', search.value.trim()], ['category', category === 'all' ? '' : category],
         ['recent', recent.checked ? '1' : ''], ['sort', sort.value === 'recent' ? 'recent' : '']]
         .forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
-      history.replaceState(null, '', url);
+      if (url.href !== location.href) history.replaceState(null, '', url);
     }
     updateLanguageSwitch();
   }
@@ -92,7 +99,7 @@
   form.hidden = false;
   form.addEventListener('submit', event => event.preventDefault());
   search.addEventListener('input', () => applyFilter());
-  sort.addEventListener('change', () => applyFilter());
+  page.querySelectorAll('[name="people-sort"]').forEach(option => option.addEventListener('change', () => applyFilter()));
   recent.addEventListener('change', () => applyFilter());
   buttons.forEach(button => button.addEventListener('click', () => {
     category = button.dataset.categoryFilter;
@@ -103,8 +110,11 @@
     search.focus();
   }));
   people.forEach(person => person.addEventListener('toggle', () => {
-    if (person.open && !person.hidden) setPersonHash(person.id);
-    else if (location.hash.slice(1) === person.id) setPersonHash('');
+    cancelAnimationFrame(hashUpdate);
+    hashUpdate = requestAnimationFrame(() => {
+      if (person.open && !person.hidden) setPersonHash(person.id);
+      else if (location.hash.slice(1) === person.id) setPersonHash('');
+    });
   }));
   window.addEventListener('popstate', () => { restore(); openLinkedPerson(); });
   window.addEventListener('hashchange', () => { openLinkedPerson(); updateLanguageSwitch(); });
