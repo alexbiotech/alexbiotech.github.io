@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://alexbiotech.github.io/sitemap.xml
+Sitemap: https://alexbiotech.github.io/synbio-column/sitemap.xml
