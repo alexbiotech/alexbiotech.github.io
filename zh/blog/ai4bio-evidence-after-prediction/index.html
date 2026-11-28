@@ -6,26 +6,26 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fafafa">
   <title>AI4Bio：预测之外，还得看什么证据 · 宁辉</title>
-  <meta name="description" content="我想搞明白：scaling 在生物学里到底为什么管用、换个条件还准不准，以及模型究竟有没有帮研究者做出更好的判断。">
+  <meta name="description" content="我想弄清三件事：scaling 在生物学里为什么管用，换个条件还准不准，模型有没有帮研究者做出更好的判断。">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Hui Ning">
   <meta property="og:title" content="AI4Bio：预测之外，还得看什么证据 · 宁辉">
-  <meta property="og:description" content="我想搞明白：scaling 在生物学里到底为什么管用、换个条件还准不准，以及模型究竟有没有帮研究者做出更好的判断。">
-  <meta property="og:url" content="https://alexsynbio.github.io/zh/blog/ai4bio-evidence-after-prediction/">
-  <meta property="og:image" content="https://alexsynbio.github.io/assets/cover-ai4bio-evidence.jpg">
+  <meta property="og:description" content="我想弄清三件事：scaling 在生物学里为什么管用，换个条件还准不准，模型有没有帮研究者做出更好的判断。">
+  <meta property="og:url" content="https://alexbiotech.github.io/zh/blog/ai4bio-evidence-after-prediction/">
+  <meta property="og:image" content="https://alexbiotech.github.io/assets/cover-ai4bio-evidence.jpg">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="576">
   <meta property="og:image:alt" content="计算中的 RNA 和蛋白设计，经过细胞中的功能观察，再由测量反馈到下一轮设计。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:locale:alternate" content="en_US">
-  <link rel="canonical" href="https://alexsynbio.github.io/zh/blog/ai4bio-evidence-after-prediction/">
-  <link rel="alternate" hreflang="en-US" href="https://alexsynbio.github.io/blog/ai4bio-evidence-after-prediction/">
-  <link rel="alternate" hreflang="zh-CN" href="https://alexsynbio.github.io/zh/blog/ai4bio-evidence-after-prediction/">
-  <link rel="alternate" hreflang="x-default" href="https://alexsynbio.github.io/blog/ai4bio-evidence-after-prediction/">
-  <link rel="alternate" type="application/rss+xml" title="宁辉 · 博客" href="https://alexsynbio.github.io/zh/feed.xml">
+  <link rel="canonical" href="https://alexbiotech.github.io/zh/blog/ai4bio-evidence-after-prediction/">
+  <link rel="alternate" hreflang="en-US" href="https://alexbiotech.github.io/blog/ai4bio-evidence-after-prediction/">
+  <link rel="alternate" hreflang="zh-CN" href="https://alexbiotech.github.io/zh/blog/ai4bio-evidence-after-prediction/">
+  <link rel="alternate" hreflang="x-default" href="https://alexbiotech.github.io/blog/ai4bio-evidence-after-prediction/">
+  <link rel="alternate" type="application/rss+xml" title="宁辉 · 文章" href="https://alexbiotech.github.io/zh/feed.xml">
   <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../../../assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../../assets/site.css?v=13">
+  <link rel="stylesheet" href="../../../assets/site.css?v=14">
   
   <script src="../../../assets/interactions.js?v=2" defer></script>
   
@@ -35,20 +35,24 @@
   <div class="site-shell">
     <header class="masthead">
       <a href="../../" class="identity">宁辉</a>
-      <nav aria-label="栏目与语言"><a href="../../principles/">悟道</a><a href="../../ai/" class="domain-nav">AI</a><a href="../../biotechnology/" class="domain-nav">生物科技</a><a href="../" class="domain-nav" aria-current="page">博客</a><a href="../../people/" class="domain-nav">人物</a><a href="../../about/" class="domain-nav">关于</a><a class="language-switch" href="../../../blog/ai4bio-evidence-after-prediction/" lang="en-US" hreflang="en-US" aria-label="Switch to English">English</a></nav>
+      <nav aria-label="栏目与语言"><a href="../../principles/">悟道</a><a href="../../ai/" class="domain-nav">AI</a><a href="../../biotechnology/" class="domain-nav">生物科技</a><a href="../" class="domain-nav" aria-current="page">文章</a><a href="../../people/" class="domain-nav">人物</a><a href="../../about/" class="domain-nav">关于</a><a class="language-switch" href="../../../blog/ai4bio-evidence-after-prediction/" lang="en-US" hreflang="en-US" aria-label="Switch to English">English</a></nav>
     </header>
     <main id="main" tabindex="-1" class="reading reading-article">
         <a href="../" class="back"><span class="link-mark">全部文章</span></a>
           <article class="essay"><header class="essay-header"><div class="essay-meta"><a href="../../biotechnology/" class="essay-topic">生物科技</a><time datetime="2026-11-06">2026年11月6日</time></div><h1><span class="title-phrase">AI4Bio：</span><span class="title-phrase">预测之外，</span><span class="title-phrase">还得看什么证据</span></h1></header>
-          <figure class="research-figure essay-cover"><div class="art-paper"><img src="../../../assets/cover-ai4bio-evidence.jpg" srcset="../../../assets/cover-ai4bio-evidence-small.jpg 720w, ../../../assets/cover-ai4bio-evidence.jpg 1440w" sizes="(max-width: 1244px) 90vw, 1120px" width="1440" height="576" alt="计算中的 RNA 和蛋白设计，经过细胞中的功能观察，再由测量反馈到下一轮设计。" decoding="async"></div></figure><div class="essay-body"><div class="essay-prose"><p>我以前在 X 上问过两个问题：AI 的 scaling 规律在生物学里还灵不灵？有没有真正落到产业里的案例？现在回头看，觉得这两个问题还得拆得更细。把数据、算力和模型规模往上堆，到底哪类任务真的变好了？变好背后的原因是什么？换个场景还管不管用？</p><p>在生物学里，“条件”本身就是问题的一大半。同一个分子，放到不同的细胞状态或体内环境里，模型的预测还能不能算数？如果一换条件就掉链子，那缺的到底是更多数据、对实验条件更准确的刻画，还是我们对底层机理本身就没摸透？我想看到的证据，得能把这几种原因分清楚。</p></div><section data-spotlight><h2>预测到底改变了哪个决定</h2><p>我关注 AI4Bio，说到底还是看它能不能帮研究者更快做出靠谱的决定。找新靶点、分析数据、给老药找新适应症、定下一步做什么实验，每一环的含金量完全不一样。一股脑全叫“加速研发”，反而看不清到底是哪一步真的省了工夫。</p><p>比如模型挑出一个新靶点，科学家接下来拿什么判断它值不值得花几个月去做验证？数据分析跑快了，研究者是不是真的更早抓住了数据里的关键差异？模型给出一个新适应症或者下一步实验建议，它到底有没有改变团队原本的计划，后来做出来的结果又支不支持这个改动？</p><p>这些没法用一个笼统的指标一概而论，得按具体任务分别拿证据说话。预测变准了，确实能帮我们缩小排查范围；但最后省没省时间、结果好不好，还得看它进了真实决策之后发生了什么。</p></section><section data-spotlight><h2>不同案例，回答的是不同问题</h2><p>Arc 复盘 Evo 2 一周年的文章里，提到了对人类基因变异的评估。看这类结果时我最想追问：模型从数据里学到的究竟是哪些可迁移的规律？放到没见过的新背景里，预测还能留住几成准头？<a class="source-link" href="https://arcinstitute.org/news/evo-2-one-year-later">机构概览</a></p><p>OpenAI、PerturbAI 和 Scripps Research 用 Rosalind 重读了已有的小鼠脑细胞数据，挖出一批值得往下验的线索；Isomorphic Labs 则放出了 IsoDDE 挑出的分子在临床前实验里的活性数据。前者看的是“分析能不能挖出好问题”，后者看的是“算出来的分子做实验灵不灵”——两边都还没走到验证人体疗效那一步。<a class="source-link" href="https://openai.com/index/scaling-ai-research-for-complex-biological-data/">Rosalind</a> · <a class="source-link" href="https://www.isomorphiclabs.com/articles/building-a-new-path-to-make-medicines-with-ai">IsoDDE</a></p><p>The Virtual Biotech 则是拿历史临床试验数据去研究靶点和结局，还专门复盘那些中途折戟的试验。这让我想到另一种反馈：以前失败的记录，能不能拿来修正原来的假设，或者帮老药指一条值得试试的新适应症？<a class="source-link" href="https://doi.org/10.1126/science.aeg6779">论文</a></p></section><section data-spotlight><h2>案例里的证据，究竟走到了哪一步</h2><p>看产业案例，我习惯把两件事拆开：AI 在前期干了什么，以及候选药物后面自己走到了哪一步。2025 年发表的 rentosertib 论文报告了一项 2a 期随机、安慰剂对照试验，入了 71 名受试者，持续 12 周。这是实打实的人体临床数据，当然长期的安全性和疗效，还得靠更大规模、更长周期的试验来定。<a class="source-link" href="https://www.nature.com/articles/s41591-025-03743-2">论文</a></p><p>这个案例让我特别想分清两层证据：临床结果证明的是药本身的表现，而要证明 AI 真的提高了发现效率，需要另一套对照。比起急着贴一张“大获成功”的标签，一个好案例抛出来的具体问题，往往更有琢磨头。</p></section><div class="essay-prose"><p>往后做研究，我想把预测、假设和实验结果扣得更紧：这个预测背后暗示了什么机制？拿什么证据支撑它？换个条件之后为什么还能成立，或者为什么突然失灵？说到底，scaling 吸引我的也就在这儿——它到底能不能帮我们多懂一点生物学，把下一步押得更有底气。</p></div></div>
+          <figure class="research-figure essay-cover"><div class="art-paper"><img src="../../../assets/cover-ai4bio-evidence.jpg" srcset="../../../assets/cover-ai4bio-evidence-small.jpg 720w, ../../../assets/cover-ai4bio-evidence.jpg 1440w" sizes="(max-width: 1244px) 90vw, 1120px" width="1440" height="576" alt="计算中的 RNA 和蛋白设计，经过细胞中的功能观察，再由测量反馈到下一轮设计。" decoding="async"></div></figure><div class="essay-body"><div class="essay-prose"><p>我以前在 X 上问过两个问题：AI 的 scaling 规律在生物学里还灵不灵？有没有落到产业里的案例？现在回头看，这两个问题还得拆细。把数据、算力和模型规模往上堆，哪类任务变好了，为什么变好，换个场景还管不管用，这几件事要分开问。</p><p>在生物学里，“条件”本身就占了问题的一大半。同一个分子，放到不同的细胞状态或体内环境里，模型的预测还算不算数？如果一换条件就掉链子，缺的可能是更多数据，可能是对实验条件更准的刻画，也可能是我们对底层机理就没摸透。我想看到的证据，得能把这几种原因分开。</p></div><section data-spotlight><h2>预测改变了哪个决定</h2><p>我关注 AI4Bio，主要看它能不能帮研究者更快做出靠谱的决定。找新靶点、分析数据、给老药找新适应症、定下一步做什么实验，每一环的分量都不一样。一股脑全叫“加速研发”，反而看不清是哪一步省了工夫。</p><p>比如模型挑出一个新靶点，科学家接下来拿什么判断它值不值得花几个月去验证？数据分析跑快了，还要看研究者是不是因此更早抓住了数据里的关键差异。模型给出新适应症或下一步实验建议时，要看它有没有改变团队原本的计划，后来的结果又支不支持这个改动。</p><p>这些没法用一个笼统的指标概括，得按任务分别拿证据。预测变准了，确实能缩小排查范围；但最后省没省时间、结果好不好，要看它进入真实决策之后发生了什么。</p></section><section data-spotlight><h2>不同案例，回答的是不同问题</h2><p>Arc 复盘 Evo 2 一周年的文章里，提到了对人类基因变异的评估。看这类结果时，我最想追问：模型从数据里学到了哪些可迁移的规律？放到没见过的背景里，预测还能保住几成准头？<a class="source-link" href="https://arcinstitute.org/news/evo-2-one-year-later">机构概览</a></p><p>OpenAI、PerturbAI 和 Scripps Research 用 Rosalind 重读了已有的小鼠脑细胞数据，挖出一批值得往下验的线索；Isomorphic Labs 则放出了 IsoDDE 挑出的分子在临床前实验里的活性数据。前者看的是“分析能不能挖出好问题”，后者看的是“算出来的分子做实验灵不灵”。两边都还没走到验证人体疗效那一步。<a class="source-link" href="https://openai.com/index/scaling-ai-research-for-complex-biological-data/">Rosalind</a> · <a class="source-link" href="https://www.isomorphiclabs.com/articles/building-a-new-path-to-make-medicines-with-ai">IsoDDE</a></p><p>The Virtual Biotech 则是拿历史临床试验数据去研究靶点和结局，还专门复盘那些中途折戟的试验。这让我想到另一种反馈：以前失败的记录，能不能拿来修正原来的假设，或者帮老药指一条值得试试的新适应症？<a class="source-link" href="https://doi.org/10.1126/science.aeg6779">论文</a></p></section><section data-spotlight><h2>案例里的证据走到了哪一步</h2><p>看产业案例，我习惯把两件事拆开：AI 在前期干了什么，以及候选药物后面自己走到了哪一步。2025 年发表的 rentosertib 论文报告了一项 2a 期随机、安慰剂对照试验，入组 71 名受试者，为期 12 周。这是实打实的人体临床数据；不过长期的安全性和疗效，还要靠更大规模、更长周期的试验来确定。<a class="source-link" href="https://www.nature.com/articles/s41591-025-03743-2">论文</a></p><p>这个案例让我想分清两层证据：临床结果说明的是药本身的表现；要证明 AI 提高了发现效率，需要另一套对照。比起急着贴上“大获成功”的标签，好案例抛出来的具体问题更值得琢磨。</p></section><div class="essay-prose"><p>往后做研究，我想把预测、假设和实验结果扣得更紧：一个预测暗示了什么机制，有什么证据撑着，换了条件为什么还成立，或者为什么失灵。scaling 吸引我的地方也在这里：它能不能帮我们多懂一点生物学，把下一步押得更有底气。</p></div></div>
           <section class="related-notes span-all"><h2>延伸阅读</h2><div class="related-grid"><section data-spotlight><h3><a href="../from-encoded-function-to-realized-function/" class="statement-link">生物系统什么时候该起作用</a></h3></section><section data-spotlight><h3><a href="../getting-agents-to-finish/" class="statement-link">我怎么让 agents 把事做完</a></h3></section></div></section></article>
     </main>
     <footer>
       <a href="mailto:nh21@tsinghua.org.cn">nh21@tsinghua.org.cn</a>
-      <nav aria-label="公开学术主页">
+      <nav aria-label="公开主页">
         <a href="../../about/">关于</a>
         <a href="https://scholar.google.com/citations?user=Jzg5EIkAAAAJ" lang="en">Google Scholar</a>
         <a href="https://orcid.org/0000-0002-6909-4282" lang="en">ORCID</a>
+        <a href="https://x.com/Alex_BioMed" lang="en">X @Alex_BioMed</a>
+        <a href="https://x.com/AI4BioTech" lang="en">X @AI4BioTech</a>
+        <span>小红书 446535242</span>
+        <a href="../../feed.xml" lang="en">RSS</a>
       </nav>
     </footer>
   </div>

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://alexsynbio.github.io/sitemap.xml
+Sitemap: https://alexbiotech.github.io/sitemap.xml
